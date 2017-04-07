@@ -27,6 +27,20 @@ public class JobForm {
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
+
+
+
+    @NotNull
+    private int locationsId;
+
+    @NotNull
+    private int coreCompetenciesId;
+
+
+    @NotNull
+    private int positionTypesId;
+
+
     @NotNull
     private ArrayList<Employer> employers;
 
@@ -38,6 +52,14 @@ public class JobForm {
 
     @NotNull
     private ArrayList<PositionType> positionTypes;
+
+
+
+
+
+
+
+
 
     public JobForm() {
 
@@ -101,5 +123,29 @@ public class JobForm {
 
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
+    }
+
+    public int getLocationsId() {
+        return locationsId;
+    }
+
+    public void setLocationsId(int locationsId) {
+        this.locationsId = locationsId;
+    }
+
+    public int getCoreCompetenciesId() {
+        return coreCompetenciesId;
+    }
+
+    public void setCoreCompetenciesId(int coreCompetenciesId) {
+        this.coreCompetenciesId = coreCompetenciesId;
+    }
+
+    public int getPositionTypesId() {
+        return positionTypesId;
+    }
+
+    public void setPositionTypesId(int positionTypesId) {
+        this.positionTypesId = positionTypesId;
     }
 }

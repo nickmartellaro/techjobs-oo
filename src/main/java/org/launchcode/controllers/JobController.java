@@ -45,14 +45,43 @@ public class JobController {
         // redirect to the job detail view for the new Job.
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Cheese");
-            return "cheese/add";
+            model.addAttribute(jobForm);
+
+            return "new-job";
+
+
+        } else {
+
+            int id = jobForm.getEmployerId();
+            Job newJob = new Job(
+                    jobForm.getName(),
+                    jobData.getEmployers().findById(jobForm.getEmployerId()),
+                    jobData.getLocations().findById(jobForm.getLocationsId()),
+                    jobData.getPositionTypes().findById(jobForm.getPositionTypesId()),
+                    jobData.getCoreCompetencies().findById(jobForm.getCoreCompetenciesId()));
+
+
+//            newJob.setEmployer(jobData.getEmployers().findById(jobForm.getEmployerId()));
+//            newJob.setLocation(jobData.getLocations().findById(jobForm.getEmployerId()));
+//            newJob.setCoreCompetency(jobData.getCoreCompetencies().findById(jobForm.getEmployerId()));
+//            newJob.setPositionType(jobData.getPositionTypes().findById(jobForm.getEmployerId()));
+
+
+//            newJob.setName(jobForm.getName());
+//            newJob.setEmployer(jobData.getEmployers().findById(jobForm.getEmployerId()));
+//            newJob.setLocation(jobData.getLocations().findById(jobForm.getLocationsId()));
+//            newJob.setCoreCompetency(jobData.getCoreCompetencies().findById(jobForm.getCoreCompetenciesId()));
+//            newJob.setPositionType(jobData.getPositionTypes().findById(jobForm.getPositionTypesId()));
+
+
+            jobData.add(newJob);
+
+            return "redirect:" + "/job?id=" + id;
+
         }
 
-        CheeseData.add(newCheese);
-        return "redirect:";
 
-//        return "";
+
 
     }
 }
