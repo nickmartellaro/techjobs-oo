@@ -47,6 +47,7 @@ public class JobController {
         if (errors.hasErrors()) {
             model.addAttribute(jobForm);
 
+
             return "new-job";
 
 
@@ -75,8 +76,9 @@ public class JobController {
 
 
             jobData.add(newJob);
+            model.addAttribute(newJob);
 
-            return "redirect:" + "/job?id=" + id;
+            return "redirect:" + "/job?id=" + newJob.getId();
 
         }
 
